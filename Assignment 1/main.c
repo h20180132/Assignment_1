@@ -105,5 +105,5 @@ static void __exit mychar_exit(void)
 module_init(mychar_init);
 module_exit(mychar_exit);
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("EEE G547");
-MODULE_DESCRIPTION("Our first character driver");
+MODULE_AUTHOR("Megha Agarwal/20180H1400132G");
+MODULE_DESCRIPTION("Assignment_1");
