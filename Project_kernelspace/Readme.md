@@ -13,6 +13,12 @@ Components used:
 4.	2 LEDs
 5.	2 220 ohm resistors 
 
+Working:
+
+When a PIR sensor detects motion, it generates a HIGH signal at the output. The output of the PIR sensor is connected to the GPIO pin. Hence, whenever a motion is detected, a HIGH signal is recieved as an input by the GPIO. This HIGH value is stored in the GPLEV read only register at the corresponding offset which can be read from the kernel space.
+
+In the project, 2 PIR sensor can be placed at the required distance (in cm) and the value can be given as input by the user. The object should move in the path of the PIR sensors. When the first PIR sensor detects the motion, it sends a HIGH signal at the GPIO. This is noted and the clock time in epoch format (in seconds)is recorded. The object now moves through the second PIR sensor and the same process is repeated. The speed of the object is calculated using the distance between the PIR sensors and the difference of the time recorded (in cm/sec).
+
 The GPIO register information is taken from Broadcom's BCM2835 ARM Peripherals document. There are two read-only registers which can be used to check the level of the GPIOs - GPLEV0 and GPLEV1, the first one starting at offset 0x34 from the GPIO base address.
 
 Schematic:
